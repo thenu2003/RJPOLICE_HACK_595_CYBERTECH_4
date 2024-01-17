@@ -1,7 +1,8 @@
-import fitz  # PyMuPDF
-from main import gen_pdf_inp
-def extract_text_from_pdf(gen_pdf_inp):
-    pdf_document = fitz.open(gen_pdf_inp)
+
+import fitz  
+
+def process_uploaded_file(pdf_path):
+    pdf_document = fitz.open(pdf_path)
     text_list = []
 
     for page_num in range(pdf_document.page_count):
@@ -17,17 +18,11 @@ def extract_text_from_pdf(gen_pdf_inp):
     for i, text in enumerate(text_list, start=1):
         print(f"Page {i}:\n{text}\n")
     return text_list
-    
-
-# Example: Replace 'your_fir.pdf' with the path to your FIR PDF
-fir_pdf_path = gen_pdf_inp
-result = extract_text_from_pdf(fir_pdf_path)
-
-# Print the text from each page
 
 
 
-# In[ ]:
+
+
 
 
 

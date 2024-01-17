@@ -16,6 +16,6 @@ def sidebar():
         st.markdown(
             " The Rajasthan Police, established in 1951, is the law enforcement agency of the state, headquartered in Jaipur. Led by the Director General of Police, it is organized into units such as CID, Traffic Police, and specialized divisions. The force is responsible for maintaining law and order, preventing and investigating crimes, and managing traffic.Actively engaging in community policing, the Rajasthan Police emphasizes training, technological integration, and collaboration with other agencies to ensure effective law enforcement and the safety of the residents."
         )
-        st.markdown(" YOURE SECURITY MATTERS!"
+        st.markdown(" YOU'RE SECURITY MATTERS!"
         )
         
