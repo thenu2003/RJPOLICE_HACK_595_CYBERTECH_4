@@ -1,29 +1,22 @@
-
-import fitz  
+import fitz  # PyMuPDF
+import streamlit as st
 
 def process_uploaded_file(pdf_path):
-    pdf_document = fitz.open(pdf_path)
-    text_list = []
+    try:
+        pdf_document = fitz.open(pdf_path)
+        text_result = []
 
-    for page_num in range(pdf_document.page_count):
-        try:
-            page = pdf_document.load_page(page_num)
-            text = page.get_text()
-            text_list.append(text)
+        for page_num in range(pdf_document.page_count):
+            page = pdf_document[page_num]
+            text_result.append(page.get_text())
 
-        except Exception as e:
-            print(f"Exception during processing (Page {page_num + 1}): {str(e)}")
+        return text_result
 
-    pdf_document.close()
-    for i, text in enumerate(text_list, start=1):
-        print(f"Page {i}:\n{text}\n")
-    return text_list
+    except Exception as e:
+        # Log the error for debugging
+        st.error(f"Error processing PDF file: {e}")
+        return None
 
-
-
-
-
-
-
-
-
+    finally:
+        if pdf_document:
+            pdf_document.close()
